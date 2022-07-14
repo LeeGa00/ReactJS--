@@ -10,10 +10,11 @@
     const root = document.getElementById("root");
 
     function App() {
-        const [counter, modifier] = React.useState(0);
-        //useState -> [valuse, funtion]
+        const [counter, setCounter] = React.useState(0);
+        //useState -> [value, funtion]
         const onClick = () => {
-            modifier(counter+1);
+            //setCounter(counter + 1);
+            setCounter((current) => (current + 1));
         };
         return (
             <div>
