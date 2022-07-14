@@ -8,32 +8,22 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const root = document.getElementById("root");
-    const Title = () => {
+
+    function App() {
+        const [counter, modifier] = React.useState(0);
+        //useState -> [valuse, funtion]
+        const onClick = () => {
+            modifier(counter+1);
+        };
         return (
-            <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
-                Hello I'm a span.
-            </h3>
+            <div>
+                <h3>Total checks: {counter}</h3>
+                <button onClick={onClick}>Click me</button>
+            </div>
         );
     }
-    const Button = () => {
-        return (
-            <button
-                style={
-                    { backgroundColor: "tomato", }
-                }
-                onClick={() => console.log("I'm clicked.")}
-            >
-                Click me
-            </button>
-        );
-    }
-    const Container = () => (
-        <div>
-            <Title />
-            <Button />
-        </div>
-    );
-    ReactDOM.render(<Container />, root);
+
+    ReactDOM.render(<App />, root);
 </script>
 
 </html>
